@@ -3,6 +3,7 @@ let show_password = function(){
     var checkbox = document.getElementById("check");
     if(checkbox.checked) input.setAttribute('type', 'text');
     else input.setAttribute('type','password');
+    
 }
 
 
