@@ -4,20 +4,26 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>repl.it</title>
+	<title>Проект : Долги </title>
 	<link href="style.css" rel="stylesheet" type="text/css" />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
 	<div class="main__div">
 		<div class="log_in">
+			<form action="get" id="log_in__form"></form>
 			<h1> Вход </h1>
-			<input class="input__log_in" type="text" placeholder="Логин">
-      <input class="input__log_in" type="password" placeholder="Пароль">
-      <a href="#">Регистрация</a>
-      <button class="input__log_in">Войти</button>
-
-      
+			<input class="input__log_in" type="text" placeholder="Логин" form="log_in__form">
+			<input id="pass" class="input__log_in" type="password" placeholder="Пароль" form="log_in__form">
+			 <div class="info__box">
+			<input type="checkbox" id="check" onclick="show_password();"> <p class="checkbox__text">Показть пароль</p>
+			<a href="#" class="reg" ">Регистрация</a>
+			</div>
+			<button class="input__log_in button__log_in" type="submit">Войти</button>
       </div>
     </div>
 

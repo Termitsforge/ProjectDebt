@@ -2,9 +2,7 @@
   margin:0;
   padding: 0;
 }
-body{
-  background-color: #0C0C0C;
-}
+body{background-color: #0C0C0C;}
 .main__div{
   display: flex;
   align-items: center;
@@ -25,16 +23,50 @@ body{
 }
 .log_in>h1{
   color: white;
+  font-family: 'Anonymous Pro', cursive;
+  font-size: 50px;
 }
-.log_in > *{
-  margin: 10px;
-
-  
-}
+.log_in > *{margin: 10px;}
 .input__log_in{
   height: 50px;
   width: 350px;
-  background: #FFFCFC;
-  border-radius: 10px;  
 
+  background: #FFFCFC;
+  border-radius: 10px; 
+  border: none;
+
+  font-family: 'Anonymous Pro', cursive;
+  font-size: 20px;
+
+  padding : 0 10px;
+
+  outline:none;
 }
+.input__log_in::placeholder{
+  font-family:'Anonymous Pro', cursive;
+  font-size: 20px;
+}
+.info__box{
+  display: flex;
+  align-items: center;
+}
+.checkbox__text{
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 20px;
+  color:white;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.reg{
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 20px;
+  text-decoration: none;
+  color:white;
+}
+.reg:hover{color:rgb(207, 207, 207)}
+.button__log_in{
+  background-color: #7A7A7A;
+  color: white;
+}
+.button__log_in:hover{background-color: #5c5c5c;}
+.button__log_in:active{ background-color: #525252;}
