@@ -1,0 +1,100 @@
+*{
+  margin:0;
+  padding: 0;
+}
+body{background-color: #0C0C0C;}
+.main__div{
+  margin: 0 auto;
+  min-height: 100vh;
+  width: 1280px; 
+
+  border: 3px solid white;
+}
+.text{
+   font-family: 'Anonymous Pro', cursive;
+   color:white;
+}
+/* ----------Heater----------- */
+header{
+    height: 70px;
+    display: flex;
+    border-bottom: 3px solid white;
+}
+.menu{
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin-left: 77px;
+}
+.menu>li{
+    display: flex;
+}
+.menu>li + li{
+    margin-left: 60px;
+}
+.a_menu{
+    font-size: 30px;
+    text-decoration: none;
+}
+.a_menu:hover{color:rgb(207, 207, 207)}
+.user__info{
+    display:flex;
+    align-items: center;
+
+    margin-left: 64px;
+}
+
+.user__name{
+    font-size:30px;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+.img{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.user__name + .user__foto{
+    margin-left: 27px;
+}
+.user__name:hover{color:rgb(207, 207, 207)}
+.user__foto{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: #C4C4C4;
+}
+/* ----------Heater----------- */
+.indebted{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 27px 0;
+}
+.indebted__i{
+    margin-left: 70px;
+}
+.indebted__to_me{
+    margin-right: 70px;
+}
+.indebted__i + .indebted__to_me{
+    margin-left: 90px;
+}
+.box__name{
+    font-size:30px;
+
+    margin-bottom: 20px;
+}
+.box{
+    height: 600px;
+    width: 528px;
+    border: 3px solid white;
+}
+.debp__list{
+    margin:25px 20px 20px 50px;
+}
+.debp{
+    margin-bottom: 20px;
+    font-size:25px;
+}
