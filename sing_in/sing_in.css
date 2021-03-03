@@ -14,7 +14,10 @@ body{background-color: #0C0C0C;}
 
   border: 3px solid white;
 }
-
+.text{
+  color: white;
+  font-family: 'Anonymous Pro', cursive;
+}
 .log_in{
   display: flex;
   align-items: center;
@@ -27,6 +30,11 @@ body{background-color: #0C0C0C;}
   font-size: 50px;
 }
 .log_in > *{margin: 10px;}
+.error{
+  width: 350px;
+  margin:0;
+  display: none;
+}
 .input__log_in{
   height: 50px;
   width: 350px;

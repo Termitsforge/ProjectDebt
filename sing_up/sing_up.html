@@ -15,17 +15,24 @@
 <body>
     <div class="main__div">
         <div class="sing_up">
-            <form action="get" id="sing_up__form"></form>
+            <form action="get" id="sing_up__form" target="_blank" onsubmit="return validateForm(this);"></form>
             <h1> Регистрация </h1>
-            <input class="input__sing_up" type="text" placeholder="Email" form="sing_up__form">
-            <input class="input__sing_up" type="text" placeholder="Логин" form="sing_up__form">
-            <input id="pass" class="input__sing_up" type="password" placeholder="Пароль" form="sing_up__form">
+
+            <div id="email__error" class="text error">Введите email</div>
+            <input name="email" class="input__sing_up" type="email" placeholder="Email" form="sing_up__form">
+
+            <div id="log_in__error" class="text error">Введите логин</div>
+            <input name="log_in" class="input__sing_up" type="text" placeholder="Логин" form="sing_up__form">
+
+            <div id="pass__error" class="text error">Введите пароль</div>
+            <input name="pass" id="pass" class="input__sing_up" type="password" placeholder="Пароль" form="sing_up__form">
+
             <div class="info__box">
                 <input type="checkbox" id="check" onclick="show_password();">
-                <p class="checkbox__text">Показть пароль</p>
+                <p class="checkbox__text">Показать пароль</p>
                 <a href="../sing_in/sing_in.html" class="reg">Вход</a>
 			</div>
-			<button class=" input__sing_up button__sing_up" type="submit">Зарегистрироваться</button>
+			<button class="input__sing_up button__sing_up" type="submit" form="sing_up__form">Зарегистрироваться</button>
             </div>
         </div>
 
