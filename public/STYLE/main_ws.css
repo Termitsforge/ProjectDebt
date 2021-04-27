@@ -10,15 +10,12 @@ body{background-color: #0C0C0C;}
 
   border: 3px solid white;
 }
-.text{
-   font-family: 'Anonymous Pro', cursive;
-   color:white;
-}
-/* ----------Heater----------- */
 header{
     height: 70px;
     display: flex;
     border-bottom: 3px solid white;
+    align-items: center;
+    position: relative;
 }
 .menu{
     height: 70px;
@@ -33,20 +30,24 @@ header{
     margin-left: 60px;
 }
 .a_menu{
+    font-family: 'Anonymous Pro', cursive;
     font-size: 30px;
     text-decoration: none;
+    color:white;
 }
 .a_menu:hover{color:rgb(207, 207, 207)}
 .user__info{
     display:flex;
     align-items: center;
-
-    margin-left: 64px;
+    position: absolute;
+    right: 40px;
 }
 
 .user__name{
+    font-family: 'Anonymous Pro', cursive;
     font-size:30px;
     text-decoration: none;
+    color:white;
 
     cursor: pointer;
 }
@@ -65,36 +66,22 @@ header{
     width: 50px;
     background-color: #C4C4C4;
 }
-/* ----------Heater----------- */
-.indebted{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 27px 0;
+.div__alerts{
+    margin-left:196px;
+    margin-top: 61px;
 }
-.indebted__i{
-    margin-left: 70px;
-}
-.indebted__to_me{
-    margin-right: 70px;
-}
-.indebted__i + .indebted__to_me{
-    margin-left: 90px;
-}
-.box__name{
-    font-size:30px;
+.div__alerts>h1{
+    color:white;
+    font-family: 'Anonymous Pro', cursive;
+    font-size:37px;
 
-    margin-bottom: 20px;
+    margin-bottom: 13px;
 }
-.box{
-    height: 600px;
-    width: 528px;
-    border: 3px solid white;
+.alert{
+    color:white;
+    font-family: 'Anonymous Pro', cursive;
+    font-size:31px;
 }
-.debp__list{
-    margin:25px 20px 20px 50px;
-}
-.debp{
-    margin-bottom: 20px;
-    font-size:25px;
+.alert+.alert{
+    margin-top:11px;
 }

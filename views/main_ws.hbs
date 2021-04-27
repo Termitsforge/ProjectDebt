@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Проект : Долги</title>
-    <link href="main_ws.css" rel="stylesheet" type="text/css" />
+    <link href="/STYLE/main_ws.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
@@ -13,27 +13,7 @@
 </head>
 <body>
     <div class="main__div">
-       <header>
-           <ul class="menu">
-               <li> 
-                  <a href="#" class="a_menu">Главная</a> 
-               </li>
-               <li>
-                    <a href="#" class="a_menu">Моя записная книжка</a> 
-               </li>
-               <li>
-                   <a href="#" class="a_menu">Калькулятор</a> 
-               </li>
-           </ul>
-           <div class="user__info">
-               <a class="user__name">
-                   имя_пользователя
-               </a>
-                <div class="user__foto">
-                    <img src="../main_website/img/user__foto.png" alt="foto" class="img">
-                </div>
-           </div>
-       </header>
+       {{> menu}}
        <section>
            <div class="div__alerts">
                <h1>Оповещения</h1>
@@ -47,6 +27,6 @@
        </section>
     </div>
     
-    <script src="main_ws.js"></script>
+    <script src="/JS/main_ws.js"></script>
 </body>
 </html>

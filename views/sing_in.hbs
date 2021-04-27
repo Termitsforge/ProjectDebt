@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>Проект : Долги </title>
-	<link href="sing_in.css" rel="stylesheet" type="text/css" />
+	<link href="/STYLE/sing_in.css" rel="stylesheet" type="text/css" />
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
 <body>
 	<div class="main__div">
 		<div class="log_in">
-			<form action="get" id="log_in__form" onsubmit="return validateForm(this);" target="_blank"></form>
+			<form method="POST" action="/sing_in" id="log_in__form" onsubmit="return validateForm(this);"></form>
 			<h1> Вход </h1>
 			<div id="log_in__error" class="text error"></div>
 			<input name="log_in" class="input__log_in" type="text" placeholder="Логин" form="log_in__form">
@@ -23,12 +23,12 @@
 			<input name="pass" id="pass" class="input__log_in" type="password" placeholder="Пароль" form="log_in__form">
 			 <div class="info__box">
 				<input type="checkbox" id="check" onclick="show_password();"> <p class="checkbox__text">Показать пароль</p>
-				<a href="../sing_up/sing_up.html" class="reg">Регистрация</a>
+				<a href="/sing_up" class="reg">Регистрация</a>
 			</div>
 			<button class="input__log_in button__log_in" type="submit" form="log_in__form">Войти</button>
       </div>
     </div>
 
-    <script src="sing_in.js"></script>
+    <script src="/JS/sing_in.js"></script>
   </body>
 </html>

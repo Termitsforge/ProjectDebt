@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Проект : Долги : Регистрация</title>
-    <link href="sing_up.css" rel="stylesheet" type="text/css" />
+    <link href="/STYLE/sing_up.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
 <body>
     <div class="main__div">
         <div class="sing_up">
-            <form action="get" id="sing_up__form" target="_blank" onsubmit="return validateForm(this);"></form>
+            <form method="POST" id="sing_up__form" onsubmit="return validateForm(this);"></form>
             <h1> Регистрация </h1>
 
             <div id="email__error" class="text error">Введите email</div>
@@ -30,13 +30,13 @@
             <div class="info__box">
                 <input type="checkbox" id="check" onclick="show_password();">
                 <p class="checkbox__text">Показать пароль</p>
-                <a href="../sing_in/sing_in.html" class="reg">Вход</a>
+                <a href="/sing_up" class="reg">Вход</a>
 			</div>
 			<button class="input__sing_up button__sing_up" type="submit" form="sing_up__form">Зарегистрироваться</button>
             </div>
         </div>
 
-        <script src="sing_up.js"></script>
+        <script src="/JS/sing_up.js"></script>
 </body>
 
 </html>
