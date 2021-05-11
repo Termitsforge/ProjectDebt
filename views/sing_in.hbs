@@ -17,6 +17,9 @@
 		<div class="log_in">
 			<form method="POST" action="/sing_in" id="log_in__form" onsubmit="return validateForm(this);"></form>
 			<h1> Вход </h1>
+			{{#if isVisible}}
+				<div class="text" style="width: 350px;"> Неверный логин или пароль </div>
+			{{/if}}
 			<div id="log_in__error" class="text error"></div>
 			<input name="log_in" class="input__log_in" type="text" placeholder="Логин" form="log_in__form">
 			<div id="pass__error" class="text error"></div>
