@@ -1,0 +1,23 @@
+CREATE TABLE users(
+ID INT NOT NULL PRIMARY KEY,
+log_in VARCHAR(50) NOT NULL,
+password VARCHAR(61) NOT NULL,
+email VARCHAR(60) NOT NULL
+);
+
+CREATE TABLE debts(
+ID_Debtor INT NOT NULL,
+ID_Creditor INT NOT NULL,
+Sum INT NOT NULL,
+FOREIGN KEY (ID_Debtor) REFERENCES users(ID),
+FOREIGN KEY (ID_Creditor) REFERENCES users(ID));
+
+/*Запрос на свои долги*/
+SELECT users.log_in, debts.Sum FROM debts, users
+WHERE debts.ID_Debtor = 1 AND users.ID = debts.ID_Creditor;
+
+INSERT INTO debts VALUES (1, 4, 1000);
+
+/*Запрос на того, кто тебе должен*/
+SELECT users.log_in, debts.Sum FROM debts, users
+WHERE debts.ID_Creditor = 4 AND users.ID = debts.ID_Debtor; 

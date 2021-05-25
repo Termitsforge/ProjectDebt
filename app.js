@@ -20,6 +20,10 @@ const saltRounds = 10;
 const Parser = bodyParser.urlencoded({
     extended: false
 });
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 app.set("view engine", "hbs");
 hbs.registerPartials(_dirname + "/views/partials");
 app.use(express.static(path.join(_dirname, '/public')));
@@ -34,8 +38,9 @@ app.get('/sing_in', (req, res) => {
 });
 app.post('/sing_in', Parser, (req, res) => {
     let resultsQuery;
-    connection.query("SELECT log_in, password FROM users WHERE log_in = ?;", [req.body.log_in], function (err, results, fields) {
+    connection.query("SELECT ID, log_in, password FROM users WHERE log_in = ?;", [req.body.log_in], function (err, results, fields) {
         resultsQuery = results[0];
+        user.ID = resultsQuery.ID;
         if (resultsQuery) {
             bcrypt.compare(req.body.pass, resultsQuery.password, (err, results) => {
                 if (results) {
@@ -67,10 +72,7 @@ app.post('/sing_up', Parser, (req, res) => {
                 console.log("Данные добавлены");
             } 
         });
-        
     });
-
-    
 });
 /*Main*/
 app.get('/main', Parser, (req, res) => {
@@ -84,6 +86,34 @@ app.get('/notebook', (req, res) => {
         name: user.name
     });
 });
+app.get('/ID', (req, res)=>{
+    let ID = JSON.stringify(user.ID);
+    res.send(ID);
+});
+
+app.post('/notebook/:id', (req, res) => {
+    let arrDebts = [];
+    connection.query("SELECT users.log_in, debts.Sum FROM debts, users WHERE debts.ID_Debtor = ? AND users.ID = debts.ID_Creditor;",[req.params.id], function (err, results, fields) {
+        console.log(results);
+        arrDebts[0] = results;
+        // число пользователей
+        connection.query("SELECT users.log_in, debts.Sum FROM debts, users WHERE debts.ID_Creditor = ? AND users.ID = debts.ID_Debtor;", [req.params.id], function (err, results) {
+            if (err) console.error(err);
+            else{
+                console.log(results);
+                arrDebts[1] = results;
+                let send = JSON.stringify(arrDebts);
+                res.send(send);
+            } 
+        });
+    });
+});
+
+
+
+
+
+
 
 app.listen(PORT, () => {
     console.log(`Server start in port ${PORT}...`);
