@@ -1,0 +1,154 @@
+*{
+    margin:0;
+    padding: 0;
+  }
+  /* ----------Heater----------- */
+header{
+    height: 70px;
+    display: flex;
+    border-bottom: 3px solid white;
+    align-items: center;
+    position: relative;
+}
+.menu{
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin-left: 77px;
+}
+.menu>li{
+    display: flex;
+}
+.menu>li + li{
+    margin-left: 60px;
+}
+.a_menu{
+    font-family: 'Anonymous Pro', cursive;
+    font-size: 30px;
+    text-decoration: none;
+    color:white;
+}
+.a_menu:hover{color:rgb(207, 207, 207)}
+.user__info{
+    display:flex;
+    align-items: center;
+    position: absolute;
+    right: 40px;
+}
+
+.user__name{
+    font-family: 'Anonymous Pro', cursive;
+    font-size:30px;
+    text-decoration: none;
+    color:white;
+
+    cursor: pointer;
+}
+.img{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.user__name + .user__foto{
+    margin-left: 27px;
+}
+.like{
+    margin-left: 30px;
+    background-color: #7A7A7A;
+    color: white;
+    height: 40px;
+    width: 80px;
+  
+    border-radius: 10px; 
+    border: none;
+    font-family: 'Anonymous Pro', cursive;
+    font-size: 20px;
+    outline:none;
+}
+.like:hover{background-color: #5c5c5c;}
+.like:active{ background-color: #525252;}
+.user__name:hover{color:rgb(207, 207, 207)}
+.user__foto{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: #C4C4C4;
+}
+/* ----------Heater----------- */
+
+body{background-color: #0C0C0C;}
+.main__div{
+    align-items: center;
+    justify-content: center;
+  
+    margin: 0 auto;
+    height: 100vh;
+    width: 1280px; 
+  
+    border: 3px solid white;
+}
+.text{
+    color: white;
+    font-family: 'Anonymous Pro', cursive;
+}
+.dept{
+    margin-top: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    flex-direction: column;
+}
+.dept>h1{
+    color: white;
+    font-family: 'Anonymous Pro', cursive;
+    font-size: 50px;
+}
+.dept > *{margin: 10px;}
+.error{
+    width: 350px;
+    margin:0;
+    display: none;
+}
+  .input__dept{
+    height: 50px;
+    width: 350px;
+  
+    background: #FFFCFC;
+    border-radius: 10px; 
+    border: none;
+  
+    font-family: 'Anonymous Pro', cursive;
+    font-size: 20px;
+  
+    padding : 0 10px;
+    
+    outline:none;
+}
+  .input__dept::placeholder{
+    font-family:'Anonymous Pro', cursive;
+    font-size: 20px;
+}
+  .info__box{
+    display: flex;
+    align-items: center;
+}
+.checkbox__text{
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 20px;
+    color:white;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.reg{
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 20px;
+    text-decoration: none;
+    color:white;
+}
+.reg:hover{color:rgb(207, 207, 207)}
+.button__dept.dept{
+    background-color: #7A7A7A;
+    color: white;
+}
+.button__dept:hover{background-color: #5c5c5c;}
+.button__dept:active{ background-color: #525252;}

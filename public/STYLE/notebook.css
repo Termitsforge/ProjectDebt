@@ -64,6 +64,21 @@ header{
 .user__name + .user__foto{
     margin-left: 27px;
 }
+.like{
+    margin-left: 30px;
+    background-color: #7A7A7A;
+    color: white;
+    height: 40px;
+    width: 80px;
+  
+    border-radius: 10px; 
+    border: none;
+    font-family: 'Anonymous Pro', cursive;
+    font-size: 20px;
+    outline:none;
+}
+.like:hover{background-color: #5c5c5c;}
+.like:active{ background-color: #525252;}
 .user__name:hover{color:rgb(207, 207, 207)}
 .user__foto{
     border-radius: 50%;

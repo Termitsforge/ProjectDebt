@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Проект : Долги </title>
+	<link href="/STYLE/dept.css" rel="stylesheet" type="text/css" />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="main__div">
+        {{> menu}}
+		<div class="dept">
+			<form method="POST" action="/dept" id="dept__form" onsubmit="return validateForm(this);"></form>
+			<h1> Долг </h1>
+			<div id="dept__error" class="text error"></div>
+			<input name="name" class="input__dept" type="text" placeholder="Имя" form="dept__form">
+			<div id="sum__error" class="text error"></div>
+			<input name="sum" class="input__dept" type="text" placeholder="Сумма" form="dept__form">
+			<button class="input__dept button__dept" type="submit" form="dept__form">Добавить</button>
+      </div>
+    </div>
+
+    <script src="/JS/dept.js"></script>
+  </body>
+</html>
