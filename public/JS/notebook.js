@@ -1,4 +1,27 @@
 let myID;
+
+setInterval(() => {
+    let xhrGET = new XMLHttpRequest();
+    xhrGET.open(
+        'GET',
+        'http://localhost:3000/ID',
+        true
+    );
+    xhrGET.send();
+    xhrGET.onreadystatechange = function () {
+        if (xhrGET.readyState != 4) {
+            return
+        }
+        if (xhrGET.status === 200) {
+            let result = JSON.parse(xhrGET.responseText);
+            myID = result;
+            xhrPOST();
+
+        } else {
+            console.log('err', xhrGET.responseText);
+        }
+    };
+}, 3000)
 let xhrGET = new XMLHttpRequest();
 xhrGET.open(
     'GET',
@@ -38,6 +61,8 @@ const xhrPOST = () => {
             arrDebts = result;
             let boxTwo = document.querySelector("#creditor");
             let boxOne = document.querySelector("#debtor");
+            boxOne.innerHTML = "";
+            boxTwo.innerHTML = "";
             console.log(arrDebts);
             if (arrDebts[0].length === 0) {
                 let p = document.createElement('p');

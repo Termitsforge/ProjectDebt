@@ -74,6 +74,24 @@ app.post('/sing_up', Parser, (req, res) => {
         });
     });
 });
+/*Debt*/
+app.get('/debt', Parser, (req, res) => {
+    res.render('debt.hbs', {
+        name: user.name
+    });
+});
+app.post('/debt', Parser, (req, res) => {
+    console.log(user);
+    connection.query(" SELECT ID FROM users WHERE log_in = ?;",[req.body.name], function (err, results, fields) {
+        connection.query("INSERT INTO debts VALUES (?, ?, ?);", [results[0].ID, user.ID, req.body.sum], function (err, results) {
+            if (err) console.error(err);
+            else{
+                res.redirect('/main');
+                console.log("Данные добавлены");
+            } 
+        });
+    });
+});
 /*Main*/
 app.get('/main', Parser, (req, res) => {
     res.render('main_ws.hbs', {
