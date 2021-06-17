@@ -1,138 +1,93 @@
-import express from 'express';
-import path from 'path';
-import bodyParser from 'body-parser';
-import hbs from 'hbs';
-import mysql from 'mysql2';
-import bcrypt from 'bcrypt';
-
-let user = {},
-    count_users = 0;
+const express = require('express'),
+    path = require('path'),
+    bodyParser = require('body-parser'),
+    hbs = require('hbs'),
+    mongoose = require('mongoose'),
+    { createProxyMiddleware } = require('http-proxy-middleware'),
+    mainRoutes = require ('./routes/main'),
+    session = require('express-session'),
+    debtRoutes = require ('./routes/debt'),
+    notebookRoutes = require ('./routes/notebook'),
+    singInRoutes = require ('./routes/sing_in'),
+    singUpRoutes = require ('./routes/sing_up');
+    veriableMiddleWare = require('./middleware/variablse');
+let user = {};
 const app = express();
-const PORT = 3000;
+const PORT = 3020;
 const _dirname = path.resolve();
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    database: "debts_project",
-    password: "root"
-});
-const saltRounds = 10;
-const Parser = bodyParser.urlencoded({
-    extended: false
-});
-app.use(bodyParser.urlencoded({
+
+app.use(express.urlencoded({
     extended: true
 }));
+app.use(express.static(path.join(_dirname, '/public')));
+
+app.use(session({
+    secret: 'some secret',
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(veriableMiddleWare);
+app.use('/main', mainRoutes);
+app.use('/debt', debtRoutes);
+app.use('/notebook', notebookRoutes);
+app.use('/sing_in', singInRoutes);
+app.use('/sing_up', singUpRoutes);
+
 app.use(bodyParser.json());
+
 app.set("view engine", "hbs");
 hbs.registerPartials(_dirname + "/views/partials");
-app.use(express.static(path.join(_dirname, '/public')));
-/*Sing In */
+
 app.get('/', (req, res) => {
     res.redirect('/sing_in');
 });
-app.get('/sing_in', (req, res) => {
-    res.render('sing_in.hbs',{
-        isVisible: false
-    });
-});
-app.post('/sing_in', Parser, (req, res) => {
-    let resultsQuery;
-    connection.query("SELECT ID, log_in, password FROM users WHERE log_in = ?;", [req.body.log_in], function (err, results, fields) {
-        resultsQuery = results[0];
-        user.ID = resultsQuery.ID;
-        if (resultsQuery) {
-            bcrypt.compare(req.body.pass, resultsQuery.password, (err, results) => {
-                if (results) {
-                    user.name = req.body.log_in;
-                    res.redirect('/main');
-                } else {
-                    res.render('sing_in.hbs', {
-                        isVisible: true
-                    });
-                }
-            });
-        }
-    
-    });
-});
-/*Sing_up*/
-app.get('/sing_up', (req, res) => {
-    res.render('sing_up.hbs');
-});
-app.post('/sing_up', Parser, (req, res) => {
-    user.name = req.body.log_in;
-    connection.query("SELECT COUNT(*) as count FROM users", function (err, results, fields) {
-        count_users = results[0].count;
-        // число пользователей
-        connection.query("INSERT INTO users VALUES(?,?,?,?)", [count_users += 1, req.body.log_in, bcrypt.hashSync(req.body.pass, saltRounds), req.body.email], function (err, results) {
-            if (err) console.error(err);
-            else{
-                res.redirect('/main');
-                console.log("Данные добавлены");
-            } 
+
+
+
+// const app2 = express();
+
+// app2.get('/', (req, res) => {
+//     res.send('This second server');
+// });
+// app2.get("/count", Parser, (req, res) => {
+//     connection.query("SELECT COUNT(*) as count FROM person", function (err, results, fields) {
+//         let count_person = JSON.stringify(results[0].count);
+//         res.send(count_person);
+//         // число записей
+//     });
+// });
+// app2.get('/notebook', (req, res) => {
+//     res.render('notebook.hbs', {
+//         name: user.name
+//     });
+// });
+// app2.get('/ID', (req, res) => {
+//     let ID = JSON.stringify(user.ID);
+//     res.send(ID);
+// });
+// const jsonPlaceholderProxy = createProxyMiddleware({
+//     target: ' http://localhost:8001',
+//     changeOrigin: true,
+//     logLevel: 'debug',
+// });
+// app.use('/notebook', jsonPlaceholderProxy);
+// app.use('/ID', jsonPlaceholderProxy);
+// app2.listen(8001, () => {
+//     console.log(`Server start! PORT : 8001...`);
+// });
+
+async function start() {
+    try {
+        const url = 'mongodb+srv://user123:3vO5giuoQBlX8dqA@cluster0.sobr9.mongodb.net/DEBTProject'
+        await mongoose.connect(url, { useNewUrlParser: true });
+
+
+        app.listen(PORT, () => {
+            console.log(`Server start in port ${PORT}...`);
         });
-    });
-});
-/*Debt*/
-app.get('/debt', Parser, (req, res) => {
-    res.render('debt.hbs', {
-        name: user.name
-    });
-});
-app.post('/debt', Parser, (req, res) => {
-    console.log(user);
-    connection.query(" SELECT ID FROM users WHERE log_in = ?;",[req.body.name], function (err, results, fields) {
-        connection.query("INSERT INTO debts VALUES (?, ?, ?);", [results[0].ID, user.ID, req.body.sum], function (err, results) {
-            if (err) console.error(err);
-            else{
-                res.redirect('/main');
-                console.log("Данные добавлены");
-            } 
-        });
-    });
-});
-/*Main*/
-app.get('/main', Parser, (req, res) => {
-    res.render('main_ws.hbs', {
-        name: user.name
-    });
-});
-/*Notebook*/
-app.get('/notebook', (req, res) => {
-    res.render('notebook.hbs', {
-        name: user.name
-    });
-});
-app.get('/ID', (req, res)=>{
-    let ID = JSON.stringify(user.ID);
-    res.send(ID);
-});
+    } catch (e) {
+        console.log(e);
+    }
 
-app.post('/notebook/:id', (req, res) => {
-    let arrDebts = [];
-    connection.query("SELECT users.log_in, debts.Sum FROM debts, users WHERE debts.ID_Debtor = ? AND users.ID = debts.ID_Creditor;",[req.params.id], function (err, results, fields) {
-        console.log(results);
-        arrDebts[0] = results;
-        // число пользователей
-        connection.query("SELECT users.log_in, debts.Sum FROM debts, users WHERE debts.ID_Creditor = ? AND users.ID = debts.ID_Debtor;", [req.params.id], function (err, results) {
-            if (err) console.error(err);
-            else{
-                console.log(results);
-                arrDebts[1] = results;
-                let send = JSON.stringify(arrDebts);
-                res.send(send);
-            } 
-        });
-    });
-});
-
-
-
-
-
-
-
-app.listen(PORT, () => {
-    console.log(`Server start in port ${PORT}...`);
-});
+}
+start();

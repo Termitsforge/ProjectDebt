@@ -14,18 +14,22 @@
 
 <body>
 	<div class="main__div">
-        {{> menu}}
+		{{> menu}}
 		<div class="dept">
 			<form method="POST" action="/debt" id="dept__form" onsubmit="return validateForm(this);"></form>
 			<h1> Долг </h1>
+			{{#if isVisible}}
+			<div class="text" style="width: 350px;"> {{message}}</div>
+			{{/if}}
 			<div id="dept__error" class="text error"></div>
 			<input name="name" class="input__dept" type="text" placeholder="Имя" form="dept__form">
 			<div id="sum__error" class="text error"></div>
 			<input name="sum" class="input__dept" type="text" placeholder="Сумма" form="dept__form">
 			<button class="input__dept button__dept" type="submit" form="dept__form">Добавить</button>
-      </div>
-    </div>
+		</div>
+	</div>
 
-    <script src="/JS/debt.js"></script>
-  </body>
+	<script src="/JS/debt.js"></script>
+</body>
+
 </html>
