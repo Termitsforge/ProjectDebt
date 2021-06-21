@@ -1,4 +1,5 @@
-const {Schema, model} = require('mongoose');
+import pkg from 'mongoose';
+const {Schema, model} = pkg;
 
 const user = new Schema({
     email: {
