@@ -29,4 +29,4 @@ router.get('/about', (req, res) => {
     let send = JSON.stringify(arrDebts);
     res.send(send);
 });
-module.exports = router;
+export default router;

@@ -31,4 +31,4 @@ router.post('/', (req, res) => {
     req.session.nameAuth = req.body.name;
     
 });
-module.exports = router;
+export default router;
