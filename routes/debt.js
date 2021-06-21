@@ -1,9 +1,14 @@
-const {Router} = require('express');
-const { model } = require('mongoose');
-const router = Router();
-const Debt = require('../models/notebook.js');
-const User = require('../models/user.js');
+// const {Router} = require('express');
+// const { model } = require('mongoose');
+// const router = Router();
+// const Debt = require('../models/notebook.js');
+// const User = require('../models/user.js');
 
+import {Router} from 'express';
+import { model } from 'mongoose';
+const router = Router();
+import Debt from '../models/notebook.js';
+import User from'../models/user.js';
 router.get('/', (req, res) => {
     res.render('debt.hbs', {
     });

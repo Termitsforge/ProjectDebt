@@ -1,7 +1,9 @@
-const { Router } = require('express');
-const { model } = require('mongoose');
+import {Router} from 'express';
+import { model } from 'mongoose';
 const router = Router();
-const Debt = require('../models/notebook.js');
+import Debt from '../models/notebook.js';
+import User from'../models/user.js';
+
 let arrDebts = [];
 router.get('/', (req, res) => {
     res.render('notebook.hbs', {

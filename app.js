@@ -1,16 +1,31 @@
-const express = require('express'),
-    path = require('path'),
-    bodyParser = require('body-parser'),
-    hbs = require('hbs'),
-    mongoose = require('mongoose'),
-    { createProxyMiddleware } = require('http-proxy-middleware'),
-    mainRoutes = require ('./routes/main'),
-    session = require('express-session'),
-    debtRoutes = require ('./routes/debt'),
-    notebookRoutes = require ('./routes/notebook'),
-    singInRoutes = require ('./routes/sing_in'),
-    singUpRoutes = require ('./routes/sing_up');
-    veriableMiddleWare = require('./middleware/variablse');
+// const express = require('express'),
+//     path = require('path'),
+//     bodyParser = require('body-parser'),
+//     hbs = require('hbs'),
+//     mongoose = require('mongoose'),
+//     { createProxyMiddleware } = require('http-proxy-middleware'),
+//     mainRoutes = require ('./routes/main'),
+//     session = require('express-session'),
+//     debtRoutes = require ('./routes/debt'),
+//     notebookRoutes = require ('./routes/notebook'),
+//     singInRoutes = require ('./routes/sing_in'),
+//     singUpRoutes = require ('./routes/sing_up');
+//     veriableMiddleWare = require('./middleware/variablse');
+
+import express from 'express';
+import path from 'path';
+import bodyParser from 'body-parser';
+import hbs from 'hbs';
+import mongoose from 'mongoose';
+import { createProxyMiddleware } from 'http-proxy-middleware';
+import mainRoutes from './routes/main';
+import session from 'express-session';
+import debtRoutes from './routes/debt';
+import notebookRoutes from './routes/notebook';
+import singInRoutes from './routes/sing_in';
+import singUpRoutes from './routes/sing_up';
+import veriableMiddleWare from './middleware/variablse';
+
 let user = {};
 const app = express();
 const PORT = 3020;
