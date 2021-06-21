@@ -1,5 +1,4 @@
 import {Router} from 'express';
-import { model } from 'mongoose';
 const router = Router();
 import User from'../models/user.js';
 

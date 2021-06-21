@@ -1,8 +1,6 @@
 import {Router} from 'express';
-import { model } from 'mongoose';
 const router = Router();
-import User from'../models/user.js';
-
+import Debt from '../models/notebook.js';
 let arrDebts = [];
 router.get('/', (req, res) => {
     res.render('notebook.hbs', {
