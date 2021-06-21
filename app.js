@@ -82,7 +82,7 @@ async function start() {
         await mongoose.connect(url, { useNewUrlParser: true });
 
 
-        app.listen(PORT, () => {
+        app.listen(process.env.PORT || PORT, () => {
             console.log(`Server start in port ${PORT}...`);
         });
     } catch (e) {
