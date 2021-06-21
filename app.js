@@ -19,7 +19,7 @@ import hbs from 'hbs';
 import mongoose from 'mongoose';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import mainRoutes from './routes/main.js';
-import session from 'express-session.js';
+import session from 'express-session';
 import debtRoutes from './routes/debt.js';
 import notebookRoutes from './routes/notebook.js';
 import singInRoutes from './routes/sing_in.js';
