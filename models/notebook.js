@@ -23,4 +23,4 @@ const debt = new Schema({
     }
 });
 
-module.exports = model("Debt",debt);
+export default debt;
