@@ -1,5 +1,6 @@
 import {Router} from 'express';
 const router = Router();
+import mongoose from 'mongoose';
 import Debt from '../models/notebook.js';
 let arrDebts = [];
 router.get('/', (req, res) => {
